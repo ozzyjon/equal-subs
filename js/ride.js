@@ -86,7 +86,30 @@ WildRydes.map = WildRydes.map || {};
     }
 
     function handleCalculateClick(event) {
-alert("calculating subs");
+        calculate();
+    }
+
+    function calculate() {
+        $.ajax({
+            method: 'POST',
+            url: _config.api.invokeUrl + '/Players',
+            headers: {
+                Authorization: authToken
+            },
+            data: JSON.stringify({
+                PickupLocation: {
+                    Latitude: pickupLocation.latitude,
+                    Longitude: pickupLocation.longitude
+                }
+            }),
+            contentType: 'application/json',
+            success: completeRequest,
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
+            }
+        });
     }
 
     function animateArrival(callback) {
