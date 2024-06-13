@@ -56,6 +56,9 @@ WildRydes.map = WildRydes.map || {};
     // Register click handler for #request button
     $(function onDocReady() {
         $('#request').click(handleRequestClick);
+
+        $('#calculate').click(handleCalculateClick);
+
         $(WildRydes.map).on('pickupChange', handlePickupChanged);
 
         WildRydes.authToken.then(function updateAuthMessage(token) {
@@ -80,6 +83,10 @@ WildRydes.map = WildRydes.map || {};
         var pickupLocation = WildRydes.map.selectedPoint;
         event.preventDefault();
         requestUnicorn(pickupLocation);
+    }
+
+    function handleCalculateClick(event) {
+alert("calculating subs");
     }
 
     function animateArrival(callback) {
