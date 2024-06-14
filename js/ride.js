@@ -41,7 +41,7 @@ WildRydes.map = WildRydes.map || {};
     function calculate() {
         $.ajax({
             method: 'POST',
-            url: _config.api.invokeUrl + '/ride',
+            url: _config.api.invokeUrl + '/calculate',
             headers: {
                 Authorization: authToken
             },
