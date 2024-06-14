@@ -86,20 +86,22 @@ WildRydes.map = WildRydes.map || {};
     }
 
     function handleCalculateClick(event) {
+    alert("calculate clicked");
         calculate();
     }
 
     function calculate() {
         $.ajax({
-            method: 'POST',
+            method: 'GET',
             url: _config.api.invokeUrl + '/Players',
+            /*
             headers: {
                 Authorization: authToken
-            },
+            },*/
             data: JSON.stringify({
                 PickupLocation: {
-                    Latitude: pickupLocation.latitude,
-                    Longitude: pickupLocation.longitude
+                    Player1: 'Nico',
+                    Player2: 'Kobe'
                 }
             }),
             contentType: 'application/json',
