@@ -38,6 +38,31 @@ WildRydes.map = WildRydes.map || {};
         });
     }
 
+    function calculate() {
+        $.ajax({
+            method: 'POST',
+            url: _config.api.invokeUrl + '/ride',
+            headers: {
+                Authorization: authToken
+            },
+            data: JSON.stringify({
+                PickupLocation: {
+                    Latitude: '123',
+                    Longitude: '234',
+                    Player1: 'Nico',
+                    Player2: 'Kobe'
+                }
+            }),
+            contentType: 'application/json',
+            success: completeRequest,
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occurred when requesting your unicorn:\n' + jqXHR.responseText);
+            }
+        });
+    }
+
     function completeRequest(result) {
         var unicorn;
         var pronoun;
@@ -82,36 +107,15 @@ WildRydes.map = WildRydes.map || {};
     function handleRequestClick(event) {
         var pickupLocation = WildRydes.map.selectedPoint;
         event.preventDefault();
+        alert("request clicked");
         requestUnicorn(pickupLocation);
     }
 
     function handleCalculateClick(event) {
-    alert("calculate clicked");
+        alert("calculate clicked");
         calculate();
     }
 
-    function calculate() {
-        $.ajax({
-            method: 'GET',
-            url: _config.api.invokeUrl + '/calculate',
-            headers: {
-                Authorization: authToken
-            },
-            data: JSON.stringify({
-                PickupLocation: {
-                    Player1: 'Nico',
-                    Player2: 'Kobe'
-                }
-            }),
-            contentType: 'application/json',
-            success: completeRequest,
-            error: function ajaxError(jqXHR, textStatus, errorThrown) {
-                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
-                console.error('Response: ', jqXHR.responseText);
-                alert('An error occurred when requesting your unicorn:\n' + jqXHR.responseText);
-            }
-        });
-    }
 
     function animateArrival(callback) {
         var dest = WildRydes.map.selectedPoint;
