@@ -40,19 +40,11 @@ WildRydes.map = WildRydes.map || {};
 
     function calculate() {
         $.ajax({
-            method: 'POST',
+            method: 'GET',
             url: _config.api.invokeUrl + '/calculate',
             headers: {
                 Authorization: authToken
             },
-            data: JSON.stringify({
-                PickupLocation: {
-                    Latitude: '123',
-                    Longitude: '234',
-                    Player1: 'Nico',
-                    Player2: 'Kobe'
-                }
-            }),
             contentType: 'application/json',
             success: completeRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
