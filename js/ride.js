@@ -106,12 +106,10 @@ WildRydes.map = WildRydes.map || {};
     function handleRequestClick(event) {
         var pickupLocation = WildRydes.map.selectedPoint;
         event.preventDefault();
-        alert("request clicked");
         requestUnicorn(pickupLocation);
     }
 
     function handleCalculateClick(event) {
-        alert("calculate clicked");
         calculate();
     }
 
