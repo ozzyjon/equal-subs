@@ -38,23 +38,6 @@ WildRydes.map = WildRydes.map || {};
         });
     }
 
-    function calculate() {
-        $.ajax({
-            method: 'GET',
-            url: _config.api.invokeUrl + '/calculate',
-            headers: {
-                Authorization: authToken
-            },
-            contentType: 'application/json',
-            success: completeRequest,
-            error: function ajaxError(jqXHR, textStatus, errorThrown) {
-                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
-                console.error('Response: ', jqXHR.responseText);
-                alert('An error occurred when requesting your unicorn:\n' + jqXHR.responseText);
-            }
-        });
-    }
-
     function completeRequest(result) {
         var unicorn;
         var pronoun;
@@ -68,6 +51,29 @@ WildRydes.map = WildRydes.map || {};
             $('#request').prop('disabled', 'disabled');
             $('#request').text('Set Pickup');
         });
+    }
+
+    function calculate() {
+        $.ajax({
+            method: 'GET',
+            url: _config.api.invokeUrl + '/calculate',
+            headers: {
+                Authorization: authToken
+            },
+            contentType: 'application/json',
+            success: completeCalculate,
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occurred when requesting your unicorn:\n' + jqXHR.responseText);
+            }
+        });
+    }
+
+    function completeCalculate(result) {
+        var unicorn;
+        var pronoun;
+        console.log('Calculate response received from API: ', result);
     }
 
     // Register click handler for #request button
