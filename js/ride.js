@@ -74,7 +74,8 @@ WildRydes.map = WildRydes.map || {};
         var unicorn;
         var pronoun;
         console.log('Calculate response received from API: ', result);
-        $('#calculatorOutput').textContent = result.language;
+        $('#request').text('Calculator Clicked');
+        $('#calculatorOutput').text = result.language;
     }
 
     // Register click handler for #request button
