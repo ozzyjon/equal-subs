@@ -56,7 +56,8 @@ WildRydes.map = WildRydes.map || {};
     function calculate() {
         $.ajax({
             method: 'GET',
-            url: _config.api.invokeUrl + '/calculate',
+            //url: _config.api.invokeUrl + '/calculate',
+            url: _config.api.invokeUrl + '/team?teamId=1',
             headers: {
                 Authorization: authToken
             },
@@ -77,6 +78,9 @@ WildRydes.map = WildRydes.map || {};
         $('#calculate').text('Calculator Clicked');
         $('#calculateOutput').text = result.company;
         $('#calculateTextarea').text = result.language;
+
+         const responseContainer = document.getElementById('calculateOutput');
+         responseContainer.textContent = JSON.stringify(result, null, 2); // pretty-print with 2 spaces
     }
 
     // Register click handler for #request button
