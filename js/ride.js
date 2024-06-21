@@ -57,7 +57,7 @@ WildRydes.map = WildRydes.map || {};
         $.ajax({
             method: 'GET',
             //url: _config.api.invokeUrl + '/calculate',
-            url: _config.api.invokeUrl + '/team/1',
+            url: _config.api.invokeUrl + '/teams/1',
             headers: {
                 Authorization: authToken
             },
