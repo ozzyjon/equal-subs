@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="accountSettings">
-    <option name="activeProfile" value="profile:default" />
-    <option name="activeRegion" value="us-east-1" />
+    <option name="activeProfile" value="profile:equal-subs" />
+    <option name="activeRegion" value="ap-southeast-2" />
     <option name="recentlyUsedProfiles">
       <list>
-        <option value="profile:default" />
         <option value="profile:equal-subs" />
+        <option value="profile:default" />
       </list>
     </option>
     <option name="recentlyUsedRegions">
       <list>
+        <option value="ap-southeast-2" />
         <option value="us-east-1" />
       </list>
     </option>
   </component>
+  <component name="connectionManager">
+    <option name="activeConnectionId" value="AwsConnectionManagerConnection" />
+  </component>
   <component name="explorerToolWindow">
-    <option name="selectedTab" value="Amazon Q + CodeWhisperer" />
+    <option name="selectedTab" value="Explorer" />
   </component>
 </project>
