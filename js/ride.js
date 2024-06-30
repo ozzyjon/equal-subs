@@ -59,8 +59,7 @@ WildRydes.map = WildRydes.map || {};
             //url: _config.api.invokeUrl + '/calculate',
             url: _config.api.invokeUrl + '/players',
             headers: {
-                Authorization: authToken,
-                 'Access-Control-Allow-Origin': '*'
+                Authorization: authToken
             },
             success: completeCalculate,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
